@@ -123,7 +123,7 @@ def classroom_delete(request, classroom_id):
 	classroom = Classroom.objects.get(id =classroom_id )
 	if request.user.is_anonymous or classroom.teacher != request.user:
 		return redirect('signin')
-	classroom.delete()	
+	classroom.delete()
 	messages.success(request, "Successfully Deleted!")
 	return redirect('classroom-list')
 
